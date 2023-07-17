@@ -22,7 +22,6 @@ class MainActivity : BaseActivity(), SearchContract.View {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        searchPresenter = SearchPresenter()
         searchPresenter.takeView(this)
 
         setButton()
@@ -30,6 +29,7 @@ class MainActivity : BaseActivity(), SearchContract.View {
 
     override fun onDestroy() {
         super.onDestroy()
+
         searchPresenter.dropView()
     }
 
